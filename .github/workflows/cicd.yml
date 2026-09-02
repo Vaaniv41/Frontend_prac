@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: npm
@@ -33,12 +33,6 @@ jobs:
 
       - name: Build application
         run: npm run build
-
-      
-       
-
-
-
 
   deploy:
     needs: test
@@ -55,7 +49,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
+          key: ${{ secrets.EC2_SSH }}
           script: |
             cd /var/www/fittrek
             git pull origin main
