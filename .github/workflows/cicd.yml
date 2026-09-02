@@ -36,9 +36,7 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: run development server
-        run: npm run dev
-
+      -
        
 
 
@@ -66,5 +64,4 @@ jobs:
             npm install
             npx prisma generate
             npm run build
-            npm run dev
             pm2 restart all
