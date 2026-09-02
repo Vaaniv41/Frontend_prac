@@ -40,7 +40,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     runs-on: ubuntu-latest
-    environment:frontend-prac_env
+    environment: frontend_prac_env
     steps:
 
       - name: Deploy to EC2
